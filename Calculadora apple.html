@@ -10,7 +10,7 @@
 
   <div class="button-container">
     <a href="Calculadora Media.html"> <button class="prev"> < </button></a>
-
+  </div>
 
 <div class="calculadora">  
   <h1>Calculadora <img src="apple.png" class="apple"> </h1>
@@ -35,8 +35,10 @@
   <h2>Resultado</h2>
   <p id="resultado">O valor total será exibido aqui.</p>
 
-  <a href="index.html"> <button class="next"> > </button></a>
 
+  <div class="button-container">
+  <a href="index.html"> <button class="next"> > </button></a>
+</div>
 </div>
 </div>
 
@@ -275,43 +277,37 @@ a {
 
   /* Responsividade para celulares */
 @media (max-width: 768px) {
-  body{
-    font-family: 'Arial Narrow Bold', sans-serif;
-    color: white;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    margin: 0; 
-    height: 60vh;
-    background-color: #30353e;
-    overflow: hidden;
-
-}
-
   .calculadora{
-    width: 80%;
+    width: 96%;
+    position: absolute;
+     align-items: center;
     border-radius: 11px;
     background: #363d44;
     box-shadow:  12px 12px 33px #1d2125,
      -12px -12px 33px #4f5963;
      text-align: center;
      padding: 5% 0 5%;
-     margin: 35% 0 20%;
+     margin: 130% 0 20%;
 
 }
-  
+
+
+
 .prev, .next {
-    position: absolute;
-    top: 61%; 
+    position:fixed;
+    top: 77%; 
 }
+
 
     .prev {
-    left: 10px; 
+    left: 190px;
 }
 
 .next {
-    right: 10px; 
+    right: 190px; 
 }
+
+
 }
 </style>
 
