@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculadora de Maçãs">
+  <title>Calculadora de Maçãs</title>
+</head>
+<body>
+
+  <div class="button-container">
+    <a href="Calculadora Media.html"> <button class="prev"> < </button></a>
+
+
+<div class="calculadora">  
+  <h1>Calculadora <img src="apple.png" class="apple"> </h1>
+
+  <form>
+    <label for="quantidade">Digite quantas maçãs você comprou:</label>
+    
+    <br>
+
+    <div class="group">
+      <img src="apple.png" class="icon">
+      <input class="input"  id="quantidade" name="quantidade" type="number" min="0" required >
+    </div>
+
+    <button type="button" onclick="calcular()" class="button">
+        Calcular
+    <div class="hoverEffect"> </div>
+      </button>
+    
+  </form>
+
+  <h2>Resultado</h2>
+  <p id="resultado">O valor total será exibido aqui.</p>
+
+  <a href="Calculadora Aritmetica.html"> <button class="next"> > </button></a>
+
+</div>
+</div>
+
+
+
+<script>
+    function calcular() {
+      const quantidade = parseInt(document.getElementById("quantidade").value);
+
+    //Salvar variaveis
+      const MenorQue12 = 2.50;
+      const MaiorQue12 = 2.00;
+
+    //Condições
+      let valorTotal;
+      if (quantidade >= 12) {
+        valorTotal = quantidade * MaiorQue12;
+      } else {
+        valorTotal = quantidade * MenorQue12;
+      }
+
+    // Aonde exibe o resultado
+      document.getElementById("resultado").innerText = `O valor total a pagar é: R$ ${valorTotal.toFixed(2)}`;
+    }
+  </script>
+
+
+<style>
+    body{
+    font-family: 'Arial Narrow Bold', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 0; 
+    background-color: #30353e;
+    overflow: hidden;
+
+}
+
+.calculadora{
+    width: 40%;
+    border-radius: 11px;
+    background: #363d44;
+    box-shadow:  12px 12px 33px #1d2125,
+     -12px -12px 33px #4f5963;
+     text-align: center;
+     padding: 5% 0 5%;
+     justify-self: center;
+     margin: 5%;
+
+}
+
+h1{
+        color: rgb(163, 40, 220);
+}
+    
+
+h2{
+    color: rgb(163, 40, 220);
+}
+
+p{
+    font-size: 20px;
+}
+
+label{
+    font-size: 25px;
+    color: white;
+}
+
+
+div .group {
+    display: flex;
+    line-height: 30px;
+    align-items: center;
+    position:relative;
+    max-width: 200px;
+    margin: 20px 0 20px;
+    justify-self: center;
+}
+
+.group{
+    text-align: center;
+}
+
+.input {
+    width: 100%;
+    height: 45px;
+    line-height: 30px;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background-color: #f8fafc;
+    color: #0d0c22;
+    transition: .5s ease;
+    font-size: 30px;
+}
+  
+.input::placeholder {
+    color: #94a3b8;
+}
+  
+.input:focus, input:hover {
+    outline: none;
+    border-color: rgba(129, 140, 248);
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+}
+  
+.apple {
+    position: absolute;
+    fill:none;
+    width: 2rem;
+    height: 2rem;
+    padding-left: 1%;
+}
+
+.icon {
+    position: absolute;
+    left: 1rem;
+    fill: none;
+    width: 2rem;
+    height: 2rem;
+}
+
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10rem;
+    transition: all 0.02s;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(14, 0, 0);
+    z-index: 0;
+    box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+}
+  
+  .button:hover {
+    background: rgb(193, 228, 248);
+    color: rgb(33, 0, 85);
+  }
+  
+.button:active {
+    transform: scale(0.97);
+}
+  
+.hoverEffect {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+  
+.hoverEffect div {
+    background: rgb(0, 66, 99);
+    background: linear-gradient(
+      90deg,
+      rgb(222, 0, 0) 0%,
+      rgb(124, 0, 191) 49%,
+      rgb(0, 28, 107) 100%);
+    border-radius: 40rem;
+    width: 10rem;
+    height: 10rem;
+    transition: 0.4s;
+    filter: blur(20px);
+    animation: effect infinite 3s linear;
+    opacity: 0.5;
+}
+  
+.button:hover .hoverEffect div {
+    width: 8rem;
+    height: 8rem;
+}
+  
+@keyframes effect {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+
+
+.button-container {
+    position: relative; /* Define um contêiner para posicionamento absoluto */
+    width: 100%; /* Largura do contêiner */
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta o centro */
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #313131;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.prev {
+    left: 300px; /* Alinha à esquerda */
+}
+
+.next {
+    right: 300px; /* Alinha à direita */
+}
+
+.prev:hover, .next:hover {
+    background-color: #505050; /* Cor ao passar o mouse */
+}
+
+
+    a {
+    text-decoration: none;            
+
+    }
+  
+</style>
+
+</body>
+</html>
+
